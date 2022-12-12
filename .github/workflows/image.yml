@@ -57,5 +57,8 @@ jobs:
             zip -r ./purple-hats-portable-mac.zip ./* -x nodejs-win nodejs-mac-arm64
           fi
 
-  
-  
+      - name: Download zip file Mac
+        uses: actions/upload-artifact@v1
+        with:
+          name: mac-artifact
+          path: ${{ github.workspace }}/purple-hats-portable-mac*.zip
