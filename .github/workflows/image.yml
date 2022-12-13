@@ -19,7 +19,9 @@ jobs:
           mkdir nodejs-win && tar -xzf nodejs-win.zip -C nodejs-win --strip-components=1 && rm ./nodejs-win.zip
 
       - name: Check out sub-directory and copy all files
-        run: robocopy ${{github.workspace}} ./purple-hats
+        run: |
+          mkdir purple-hats
+          robocopy ${{github.workspace}} ./purple-hats /E /COPYALL
 
       - name: Install Node Modules for Windows
         run: npm i fsevents@latest -f --save-optional && npm ci 
