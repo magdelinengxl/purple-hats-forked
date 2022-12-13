@@ -19,8 +19,8 @@ jobs:
           mkdir nodejs-win && tar -xzf nodejs-win.zip -C nodejs-win --strip-components=1 && rm ./nodejs-win.zip
       
       - name: Install Node Modules
-          run: npm i fsevents@latest -f --save-optional && npm ci 
-          working-directory: purple-hats
+        run: npm i fsevents@latest -f --save-optional && npm ci 
+        working-directory: purple-hats
 
       - name: Download Windows zip file 
         uses: actions/upload-artifact@v1
