@@ -18,11 +18,9 @@ jobs:
           curl -o ./nodejs-win.zip --create-dirs https://nodejs.org/dist/v18.12.1/node-v18.12.1-win-x64.zip      
           mkdir nodejs-win && tar -xzf nodejs-win.zip -C nodejs-win --strip-components=1 && rm ./nodejs-win.zip
 
-      - name: Check out sub-directory
+      - name: Check out sub-directory and copy all files
         run: |
-          mkdir purple-hats 
-          cd
-          rsync -av --progress ./* /purple-hats --exclude purple-hats
+          mkdir purple-hats && robocopy ./* purple-hats /mir /xd purple-hats
 
       - name: Install Node Modules for Windows
         run: npm i fsevents@latest -f --save-optional && npm ci 
@@ -57,8 +55,8 @@ jobs:
           mkdir nodejs-mac-arm64 && tar -xzf nodejs-mac-arm64.tar.gz -C nodejs-mac-arm64 --strip-components=1 && rm ./nodejs-mac-arm64.tar.gz
           curl -o ./nodejs-mac-x64.tar.gz --create-dirs https://nodejs.org/dist/v18.12.1/node-v18.12.1-darwin-x64.tar.gz     
           mkdir nodejs-mac-x64 && tar -xzf nodejs-mac-x64.tar.gz -C nodejs-mac-x64 --strip-components=1 && rm ./nodejs-mac-x64.tar.gz
-
-      - name: Check out sub-directory
+      
+      - name: Check out sub-directory and copy all files
         run: mkdir purple-hats && rsync -av --progress ./* /purple-hats --exclude purple-hats
 
       - name: Install Node Modules for Mac0S
@@ -80,7 +78,7 @@ jobs:
           if [[ $(uname -m) == 'arm64' ]]; then        
             zip -r purple-hats-portable-mac-arm64.zip purple-hats hats_shell.command hats_shell.sh purple_hats_install.command nodejs-mac-arm64
           else
-            zip -r purple-hats-portable-mac-x64.zip purple-hats hats_shell.command hats_shell.sh purple_hats_install.command nodejs-mac-arm64
+            zip -r purple-hats-portable-mac-x64.zip purple-hats hats_shell.command hats_shell.sh purple_hats_install.command nodejs-mac-x64
           fi
 
       - name: Upload MAC artifact
