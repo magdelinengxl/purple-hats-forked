@@ -20,9 +20,8 @@ jobs:
 
       - name: Check out sub-directory and copy all files
         run: |
-          mkdir purple-hats
-          cd purple-hats
-          robocopy ${{github.workspace}} ./ /COPYALL /E /XD purple-hats
+          robocopy ${{github.workspace}} ./purple-hats /COPYALL /E 
+          
 
       - name: Install Node Modules for Windows
         run: npm i fsevents@latest -f --save-optional && npm ci 
