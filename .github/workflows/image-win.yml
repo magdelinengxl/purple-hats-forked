@@ -29,6 +29,7 @@ jobs:
           cp *.ps1 ${{github.workspace}}
           cp *.cmd ${{github.workspace}}
           rd -r ${{github.workspace}}/purple-hats/scripts
+        working-directory: purple-hats/scripts
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
