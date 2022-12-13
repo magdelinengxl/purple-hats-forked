@@ -20,7 +20,7 @@ jobs:
 
       - name: Check out sub-directory and copy all files
         run: |
-          mkdir purple-hats && robocopy .\* .\purple-hats /COPYALL /E /XD purple-hats
+          mkdir purple-hats && robocopy dir .\purple-hats /COPYALL /E /XD purple-hats
 
       - name: Install Node Modules for Windows
         run: npm i fsevents@latest -f --save-optional && npm ci 
