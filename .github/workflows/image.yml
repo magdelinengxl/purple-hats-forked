@@ -26,7 +26,6 @@ jobs:
               
       - name: Copy scripts to parent directory
         run: |
-          cd
           cp ${{github.workspace}}/purple-hats/scripts/*  ${{github.workspace}}
           rd -r ${{github.workspace}}/purple-hats/scripts
 
@@ -68,9 +67,9 @@ jobs:
       - name: Zip entire Purple Hats folder
         run: |
           if [[ $(uname -m) == 'arm64' ]]; then        
-            zip purple-hats-portable-mac-arm64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd' 'nodejs-mac-x64 'nodejs-mac-arm64' 'nodejs-mac-x64'
+            zip purple-hats-portable-mac-arm64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd' 'nodejs-mac-x64' 'nodejs-mac-arm64' 
           else
-            zip purple-hats-portable-mac-x64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd'  'nodejs-mac-arm64' 'nodejs-mac-arm64' 'nodejs-mac-x64'
+            zip purple-hats-portable-mac-x64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd'  'nodejs-mac-x64' 'nodejs-mac-arm64' 
           fi
 
       - name: Upload MAC artifact
