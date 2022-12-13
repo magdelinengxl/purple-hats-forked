@@ -69,9 +69,9 @@ jobs:
       - name: Zip entire Purple Hats folder
         run: |
           if [[ $(uname -m) == 'arm64' ]]; then        
-            zip -r purple-hats-portable-mac-arm64.zip ./*
+            zip purple-hats-portable-mac-arm64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd'
           else
-            zip -r purple-hats-portable-mac-x64.zip ./*
+            zip purple-hats-portable-mac-x64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd'
           fi
 
       - name: Upload MAC artifact
