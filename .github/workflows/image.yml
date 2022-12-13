@@ -21,9 +21,7 @@ jobs:
           path: purple-hats
 
       - name: Install Node Modules for Windows
-        run: |
-          cd
-          npm i fsevents@latest -f --save-optional && npm ci 
+        run: npm i fsevents@latest -f --save-optional && npm ci 
         working-directory: purple-hats
               
       - name: Copy scripts to parent directory
@@ -69,9 +67,9 @@ jobs:
       - name: Zip entire Purple Hats folder
         run: |
           if [[ $(uname -m) == 'arm64' ]]; then        
-            zip purple-hats-portable-mac-arm64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd'
+            zip purple-hats-portable-mac-arm64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd' 'nodejs-mac-x64'
           else
-            zip purple-hats-portable-mac-x64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd'
+            zip purple-hats-portable-mac-x64.zip -r . --exclude 'hats_shell_ps.ps1' 'hats_shell.cmd'  'nodejs-mac-arm64'
           fi
 
       - name: Upload MAC artifact
