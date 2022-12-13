@@ -29,8 +29,7 @@ jobs:
       - name: Copy scripts to parent directory
         run: |
           cd
-          cp ./*  ${{github.workspace}}
-        working-directory: purple-hats/scripts
+          cp ./purple-hats/scripts/*  ${{github.workspace}}
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
@@ -68,8 +67,7 @@ jobs:
       - name: Copy scripts to parent directory
         run: |
           pwd
-          cp ./*  ../../
-        working-directory: purple-hats/scripts
+          cp ./purple-hats/scripts/*  ../../
       
       - name: Zip entire Purple Hats folder
         run: |
