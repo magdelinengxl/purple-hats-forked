@@ -29,7 +29,7 @@ jobs:
       - name: Copy scripts to parent directory
         run: |
           cd
-          cp ./purple-hats/scripts/*  ${{github.workspace}}
+          cp ${{github.workspace}}/purple-hats/scripts/*  ${{github.workspace}}
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
@@ -54,10 +54,7 @@ jobs:
           path: purple-hats
 
       - name: Install Node Modules for Mac0S
-        run: |
-          pwd
-          ls
-          npm ci 
+        run: npm ci 
         working-directory: purple-hats
 
       - name: Grant execute permissions for user
@@ -67,14 +64,14 @@ jobs:
       - name: Copy scripts to parent directory
         run: |
           pwd
-          cp ./purple-hats/scripts/*  ../../
+          cp ./purple-hats/scripts/*  ${{ github.workspace }}
       
       - name: Zip entire Purple Hats folder
         run: |
           if [[ $(uname -m) == 'arm64' ]]; then        
-            zip -r purple-hats-portable-mac-arm64.zip purple-hats hats_shell.command hats_shell.sh purple_hats_install.command nodejs-mac-arm64
+            zip -r purple-hats-portable-mac-arm64.zip ./*
           else
-            zip -r purple-hats-portable-mac-x64.zip purple-hats hats_shell.command hats_shell.sh purple_hats_install.command nodejs-mac-x64
+            zip -r purple-hats-portable-mac-x64.zip ./*
           fi
 
       - name: Upload MAC artifact
