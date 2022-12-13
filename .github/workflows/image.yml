@@ -56,7 +56,8 @@ jobs:
 
       - name: Install Node Modules for Mac0S
         run: |
-          cd
+          pwd
+          ls
           npm ci 
         working-directory: purple-hats
 
