@@ -26,7 +26,8 @@ jobs:
               
       - name: Copy scripts to parent directory
         run: |
-          for %%I in (*.ps1 *.cmd) do copy %I ${{github.workspace}}
+          cp ${{github.workspace}}/purple-hats/scripts/*.ps1 ${{github.workspace}}
+          cp ${{github.workspace}}/purple-hats/scripts/*.cmd ${{github.workspace}}      
           rd -r ${{github.workspace}}/purple-hats/scripts
 
       - name: Upload Windows artifact
