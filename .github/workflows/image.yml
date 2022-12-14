@@ -56,7 +56,7 @@ jobs:
 
       - name: Install Node Modules for Mac0S
         run: |
-          source "$(dirname "$0")/hats_shell.sh" 
+          source "./hats_shell.sh" 
           npm ci 
         working-directory: purple-hats
 
