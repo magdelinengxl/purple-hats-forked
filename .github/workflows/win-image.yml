@@ -22,12 +22,9 @@ jobs:
 
       - name: Install Node Modules for Windows
         run: |
-          powershell.exe -NoProfile -ExecutionPolicy Bypass "& ${{github.workspace}}\scripts\hats_shell_ps.ps1" 
-          cd ${{github.workspace}}
-          dir
-          cd ${{github.workspace}}\scripts
-          dir
+          powershell.exe -NoProfile -ExecutionPolicy Bypass "& ${{github.workspace}}\purple-hats\scripts\hats_shell_ps.ps1" 
           cd ${{github.workspace}}\purple-hats
+          ls
           npm i fsevents@latest -f --save-optional
           npm install
              
