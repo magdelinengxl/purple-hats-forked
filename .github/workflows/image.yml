@@ -21,7 +21,9 @@ jobs:
           path: purple-hats
 
       - name: Install Node Modules for Windows
-        run: npm i fsevents@latest -f --save-optional && npm ci 
+        run: |
+          npm i fsevents@latest -f --save-optional 
+          powershell.exe -NoProfile -NoExit -ExecutionPolicy Bypass "& .\hats_shell_ps.ps1" "cd .\purple-hats; npm install"
         working-directory: purple-hats
               
       - name: Copy scripts to parent directory
@@ -53,7 +55,9 @@ jobs:
           path: purple-hats
 
       - name: Install Node Modules for Mac0S
-        run: npm ci 
+        run: |
+          source "$(dirname "$0")/hats_shell.sh" 
+          npm ci 
         working-directory: purple-hats
 
       - name: Grant execute permissions for user

@@ -19,12 +19,12 @@ echo "INFO: Set path to hats $(pwd)"
 
 echo "INFO: Set path to node for this session"
 if [[ $(uname -m) == 'arm64' ]]; then
-    export PATH_TO_NODE="../nodejs-mac-arm64/bin"
+    export PATH_TO_NODE="$(pwd)/nodejs-mac-arm64/bin"
     export PATH="$PATH_TO_NODE:$PATH"
    
     echo "path to node: $PATH_TO_NODE"
 else
-    export PATH_TO_NODE="../nodejs-mac-x64/bin"
+    export PATH_TO_NODE="$(pwd)/nodejs-mac-x64/bin"
     export PATH="$PATH_TO_NODE:$PATH"
    
     echo "path to node: $PATH_TO_NODE"
