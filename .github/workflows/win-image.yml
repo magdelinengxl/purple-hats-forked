@@ -21,7 +21,12 @@ jobs:
           path: purple-hats
 
       - name: Install Node Modules for Windows
-        run: powershell.exe -NoProfile -ExecutionPolicy Bypass "& {{github.workspace}}\hats_shell_ps.ps1" "cd {{github.workspace}}\purple-hats; npm i fsevents@latest -f --save-optional ; npm install"
+        run: |
+          powershell.exe -NoProfile -ExecutionPolicy Bypass "& {{github.workspace}}\hats_shell_ps.ps1"
+          cd {{github.workspace}}\purple-hats
+          cd
+          npm i fsevents@latest -f --save-optional
+          npm install
              
       - name: Copy scripts to parent directory
         run: |
