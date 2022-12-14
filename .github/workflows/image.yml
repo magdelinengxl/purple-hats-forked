@@ -56,7 +56,13 @@ jobs:
 
       - name: Install Node Modules for Mac0S
         run: |
-          source ./scripts/hats_shell.sh 
+          if [[ $(uname -m) == 'arm64' ]]; then
+            export PATH_TO_NODE="${{github.workspace}}/nodejs-mac-arm64/bin"
+            export PATH="$PATH_TO_NODE:$PATH"
+          else
+            export PATH_TO_NODE="${{github.workspace}}/nodejs-mac-x64/bin"
+            export PATH="$PATH_TO_NODE:$PATH"
+          fi
           npm ci 
         working-directory: purple-hats
 

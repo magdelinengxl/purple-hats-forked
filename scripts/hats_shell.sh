@@ -32,6 +32,7 @@ fi
 
 export PATH_TO_BETTER_SQLITE3="./purple-hats/node_modules/better-sqlite3-with-prebuilds/build/Release"
 echo "path to better_sqlite3: $PATH_TO_BETTER_SQLITE3"
+
 declare -a exec=($PATH_TO_BETTER_SQLITE3/better_sqlite3.node $PATH_TO_NODE/node)
 
 for p in ${exec[@]} ; do
