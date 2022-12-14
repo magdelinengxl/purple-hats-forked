@@ -23,7 +23,7 @@ jobs:
       - name: Install Node Modules for Windows
         run: |
           cd
-          powershell.exe -NoProfile -ExecutionPolicy Bypass "& .\hats_shell_ps.ps1" "cd .\purple-hats; npm i fsevents@latest -f --save-optional ; npm install"
+          powershell.exe -NoProfile -ExecutionPolicy Bypass "& {{github.workspace}}\hats_shell_ps.ps1" "cd .\purple-hats; npm i fsevents@latest -f --save-optional ; npm install"
              
       - name: Copy scripts to parent directory
         run: |
