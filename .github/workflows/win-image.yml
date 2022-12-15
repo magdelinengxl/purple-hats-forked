@@ -34,11 +34,11 @@ jobs:
           mkdir -p ${{github.workspace}}/purple-hats/node_modules
           npm i --prefix ${{github.workspace}}/purple-hats fsevents@latest -f --save-optional 
 
-      - name: Install Node Modules for Windows
-        run: |
-          cd purple-hats
-          dir
-          npm i fsevents@latest -f --save-optional 
+      # - name: Install Node Modules for Windows
+      #   run: |
+      #     cd purple-hats
+      #     dir
+      #     npm i fsevents@latest -f --save-optional 
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
