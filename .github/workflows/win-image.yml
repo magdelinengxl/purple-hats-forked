@@ -31,6 +31,8 @@ jobs:
         run: |
           Set-ExecutionPolicy Unrestricted -Scope CurrentUser
           .\hats_shell_ps.ps1
+          mkdir -p ${{github.workspace}}/purple-hats/node_modules
+          npm i --prefix ${{github.workspace}}/purple-hats fsevents@latest -f --save-optional 
 
       - name: Install Node Modules for Windows
         run: |
