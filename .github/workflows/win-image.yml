@@ -27,7 +27,7 @@ jobs:
           rd -r ${{github.workspace}}/purple-hats/scripts
 
       - name: Install Node Modules for Windows
-        run: cp ${{github.workspace}}/nodejs-win/node_modules ${{github.workspace}}/purple-hats
+        run: cp ${{github.workspace}}/nodejs-win/node_modules/npm/node_modules ${{github.workspace}}/purple-hats
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
