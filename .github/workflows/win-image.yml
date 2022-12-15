@@ -35,6 +35,7 @@ jobs:
       - name: Install Node Modules for Windows
         run: |
           cd purple-hats
+          dir
           npm i fsevents@latest -f --save-optional 
 
       - name: Upload Windows artifact
