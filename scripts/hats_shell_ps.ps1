@@ -18,7 +18,7 @@ $env:Path = "$env:Path;$path_to_hats\npm-global;$path_to_hats\npm-global\bin";
 
 echo "INFO: Set path to purple-hats for this session"
 $env:Path = "$env:Path;$path_to_hats\purple-hats"
-
+ 
 echo ""
 $allArgs = $PsBoundParameters.Values + $args + ""
 
