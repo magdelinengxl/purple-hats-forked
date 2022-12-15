@@ -33,7 +33,9 @@ jobs:
           .\hats_shell_ps.ps1
 
       - name: Install Node Modules for Windows
-        run: npm i fsevents@latest -f --save-optional 
+        run: |
+          cd purple-hats
+          npm i fsevents@latest -f --save-optional 
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
