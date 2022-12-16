@@ -33,7 +33,8 @@ jobs:
           dir
           ${{github.workspace}}\hats_shell_ps.ps1
           npm i --prefix ${{github.workspace}}/purple-hats fsevents@latest -f --save-optional
-
+        working-directory:  ${{github.workspace}}
+        
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
         with:
