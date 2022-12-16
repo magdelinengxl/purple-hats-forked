@@ -31,11 +31,9 @@ jobs:
         run: | 
           cd 
           dir
-          .\hats_shell_ps.ps1
           ${{github.workspace}}\hats_shell_ps.ps1
           npm i --prefix ${{github.workspace}}/purple-hats fsevents@latest -f --save-optional
-        continue-on-error: true
-        
+
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v1
         with:
