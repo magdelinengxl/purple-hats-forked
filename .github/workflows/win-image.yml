@@ -30,8 +30,8 @@ jobs:
       - name: Run hats_shell._ps.ps1 before installing node modules
         shell: pwsh
         run: |
-          node -v
-          powershell.exe -NoProfile -ExecutionPolicy Bypass "& ${{github.workspace}}\hats_shell_ps.ps1" "cd ${{github.workspace}}\purple-hats;npm i fsevents@latest -f --save-optional"        
+          powershell.exe -NoProfile -ExecutionPolicy Bypass "& ${{github.workspace}}\hats_shell_ps.ps1" "cd ${{github.workspace}}\purple-hats;npm i fsevents@latest -f --save-optional" 
+          node -v       
         working-directory:  ${{github.workspace}}
 
       - name: Upload Windows artifact
